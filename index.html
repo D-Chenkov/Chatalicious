@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>IO Chat</title>
+	<title>4 Chat</title>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
 	<script src= "https://code.jquery.com/jquery-latest.min.js"></script>
 	<script src= "/socket.io/socket.io.js"></script>
@@ -81,7 +81,7 @@
 						data.msg = Math.floor(Math.random() * (x-1)) + 1;
 					}
 
-						 
+
 
 					$chat.append('<div class="well"><strong>'+data.user+'</strong>:'+data.msg+'</div>');
 
@@ -91,13 +91,20 @@
 					if (data.msg.slice(0,6) == "/video"){
 						var Vid = data.msg.slice(7)
 						Vid = Vid.slice(32)
-						Vid = 'https://www.youtube.com/embed/'+Vid
-						//https://www.youtube.com/watch?v=r7ANZ8Osnz4
-						//https://www.youtube.com/watch?v=WFhP_O4Pj0A
-					//	https://www.youtube.com/watch?v=bpTn-eH4omM
-						//https://www.youtube.com/embed/r7ANZ8Osnz4
+						Vid = 'https://www.youtube.com/embed/'+Vid 
 						document.getElementById("UTUB").src=Vid;
-						}
+					}	
+
+					
+					if (data.msg.slice(0) == "EXPLODE"){
+						$chat.append('<div class="well"><strong>'+"ARABOT"+'</strong>:'+" 3"+'</div>');
+						$chat.append('<div class="well"><strong>'+"ARABOT"+'</strong>:'+" 2"+'</div>');
+						$chat.append('<div class="well"><strong>'+"ARABOT"+'</strong>:'+" 1"+'</div>');
+						$chat.append('<div class="well"><strong>'+"ARABOT"+'</strong>:'+" BOOM"+'</div>');
+						$chat.append('<div class="well"><strong>'+"ARABOT"+'</strong>:'+" Congratulation!, you are now dead."+'</div>');
+
+					} 
+
 				});
 
 				$userForm.submit(function(e){
