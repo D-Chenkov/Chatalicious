@@ -21,7 +21,7 @@
 			<div class="col-md-12">
 				<form id="userForm">
 					<div class="form-group">
-						<label>Enter Username</label>
+						<label>Ingrese su nombre (o no lo haga, soy una señal no un policia)</label>
 						<input class="form-control" id="username"/>
 						<br />
 						<input type="submit" class="btn btn-primary" value="Login" />
@@ -33,11 +33,12 @@
 		<div id="messageArea" class= "row">
 			<div class = "col-md-4">
 				<div class="well">
-					<h3>Gamers Online</h3>
+					<h3>Menes en el chat</h3>
 					<div style="height:220px;width:auto ;border:1px solid #ccc;font:16px/26px Georgia, Garamond, Serif;overflow:auto;">
 						<ul class="list-group" id="users"></ul>
 					</div>
 				</div>
+				<iframe width="360" height="235" src="https://www.youtube.com/embed/JsDI1Ui3LM4" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen id ='UTUB'></iframe>
 			</div>
 			<div class="col-md-8">
 				<div style="height:420px;width:auto ;border:1px solid #ccc;font:16px/26px Georgia, Garamond, Serif;overflow:auto;">
@@ -47,7 +48,7 @@
 				<br />
 				<form id="messageForm">
 					<div class="form-group">
-						<label>Get a Victory Royale</label>
+						<label>Donde la magia ocurre</label>
 						<textarea class="form-control" id="message"></textarea>
 						<br />
 						<input type="submit" class="btn btn-primary" value="Send Message" />
@@ -80,11 +81,23 @@
 						data.msg = Math.floor(Math.random() * (x-1)) + 1;
 					}
 
+						 
+
 					$chat.append('<div class="well"><strong>'+data.user+'</strong>:'+data.msg+'</div>');
 
 					if (data.msg == "/Kill"){
 						$chat.append('<div class="well"><strong>'+"DEPRESSION-BOT"+'</strong>:'+data.user+" wants to kill himself"+'</div>');
 					}
+					if (data.msg.slice(0,6) == "/video"){
+						var Vid = data.msg.slice(7)
+						Vid = Vid.slice(32)
+						Vid = 'https://www.youtube.com/embed/'+Vid
+						//https://www.youtube.com/watch?v=r7ANZ8Osnz4
+						//https://www.youtube.com/watch?v=WFhP_O4Pj0A
+					//	https://www.youtube.com/watch?v=bpTn-eH4omM
+						//https://www.youtube.com/embed/r7ANZ8Osnz4
+						document.getElementById("UTUB").src=Vid;
+						}
 				});
 
 				$userForm.submit(function(e){
